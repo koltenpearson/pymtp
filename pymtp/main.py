@@ -829,7 +829,7 @@ class MTP:
 
 			# Check if this ID exists, if not, add it
 			# and trigger a scan of the children
-			if not (ret.has_key(next.folder_id)):
+			if next.folder_id not in ret:
 				ret[next.folder_id] = next
 				scanned = False
 
@@ -871,7 +871,7 @@ class MTP:
 		while True:
 			next = next.contents
 			## Check if this folder is in the dict
-			if not (tmp.has_key(next.folder_id)):
+			if next.folder_id not in tmp:
 				tmp[next.folder_id] = next
 
 			# Check for siblings
